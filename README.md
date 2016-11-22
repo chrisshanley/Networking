@@ -53,6 +53,7 @@ class LoginNetworkClient : AbstractNetworkClient
 }
 
 // usage
+typealias JSONDictionary = [String:Any]
 self.loginClient = LoginNetworkClient(host: InfoListAccessor.apiHost, session: URLSession.default, auth: nil )        
 self.client.login(JSONDictionary.self, email: email, password: pass,  closure: { [unowned self](obj, status, info) in
         if let json = obj
