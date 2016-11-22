@@ -35,3 +35,34 @@ let queue = OperationQueue()
 queue.addOperation(operation)
 operation.start()
 ```
+
+Example with the ```AbstractNetworkClient```
+```
+// subclass
+class LoginNetworkClient : AbstractNetworkClient
+{
+    func login<T:Any>(_ type:T.Type, email:String, password:String,  closure:@escaping NetworkCompleteClosure<T> )
+    {
+        let params = (encoding:NetworkParamEncoding.json_ENCODING, params: ["username": email, "password": password] )
+        var url = "/api/1/path/to/login"
+        super.makeRequest(NetworkHTTPMethod.post, params:params, headers:self.headers, type:type, endpoint: url ) { (obj, status, info) in
+            closure(obj, status, info)
+        }
+    }
+}
+
+// usage
+self.loginClient = LoginNetworkClient(host: InfoListAccessor.apiHost, session: URLSession.default, auth: nil )        
+self.client.login(JSONDictionary.self, email: email, password: pass,  closure: { [unowned self](obj, status, info) in
+        if let json = obj
+        {
+            // handle success
+        }
+        else
+        {
+            // handle error
+        }
+ })
+
+```
+
