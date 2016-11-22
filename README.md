@@ -5,6 +5,13 @@ NOTE
 This is a work in progress, mainly to alivate larger more oppinionated frameworks. 
 It's designed for private API consumption working with auth tokens. 
 
+Some advantages of using operations 
+- you can add requerst dependiecies 
+- you can cancel all ongoing requests easilly 
+- threading is handled for you, we just need to call back on main UI when we need to
+- you can limit concurrent requersts going out easily 
+- serializing is easy , paralleing is also easy
+
 TODO 
 - support for binary data as response type
 - add type aliases for JSON conversion 
