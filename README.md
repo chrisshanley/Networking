@@ -19,7 +19,7 @@ let endpoint  = "/api/1/path/to/resources"
 let req       = self.factory.httpRequest(endpoint, method:method, headers:headers, data:params)
 let operation = HTTPOperation(request: req, session: self.session)
 operation.completionBlock = {[weak op = operation] in
-    if let data = op?.data
+    if let resp = op?.networkResponse
     {
     // call on main thread and pass data to some parser
     }
