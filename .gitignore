@@ -1,0 +1,6 @@
+# osx metadata
+.DS_Store
+Pods
+Podfile.lock
+DerivedData
+DerivedData/*
