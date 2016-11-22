@@ -1,5 +1,6 @@
 # Networking
 Light weight networking library based on NSOperation and the built in URLSession
+that knows little about the data its transferring. 
 
 NOTE
 This is a work in progress, mainly to alivate larger more oppinionated frameworks. 
